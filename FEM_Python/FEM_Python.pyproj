@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>58052f7e-aefa-4837-933c-6b4fcbc31ff3</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>solver_1d_linear.py</StartupFile>
+    <StartupFile>test2.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -13,6 +13,7 @@
     <RootNamespace>FEM_Python</RootNamespace>
     <IsWindowsApplication>False</IsWindowsApplication>
     <InterpreterId>Global|PythonCore|3.12</InterpreterId>
+    <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,11 +25,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="mesh_generation.py" />
-    <Compile Include="perturbation_theory.py" />
+    <Compile Include="hartree.py" />
     <Compile Include="solver_1d_linear.py" />
+    <Compile Include="test.py" />
+    <Compile Include="test2.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.12" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sto-3g.1.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

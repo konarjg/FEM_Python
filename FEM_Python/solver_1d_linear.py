@@ -3,7 +3,6 @@ from scipy import constants as const
 import numpy as np
 import mesh_generation as mg
 import matplotlib.pyplot as plt
-import perturbation_theory as pt
 
 #This function generates the element connectivity matrix
 #N -> integer, number of nodes in the mesh
@@ -99,7 +98,6 @@ def solve(equation, domain, N):
                 A[I][J] = A[I][J] + equation[0](x) * K2(i, j, h) + equation[1](x) * K1(i, j, h) + equation[2](x) * K(i, j, h)
                 B[I][J] = B[I][J] + K(i, j, h)
          
-    H = (A, B)
     A = np.delete(A, N - 1, 0)
     A = np.delete(A, N - 1, 1)
     A = np.delete(A, 0, 0)
@@ -110,9 +108,10 @@ def solve(equation, domain, N):
     B = np.delete(B, 0, 0)
     B = np.delete(B, 0, 1)
     
-    (E, v) = sp.linalg.eigh(A, B, subset_by_index=[0, 10], driver="gvx")
+    (E, v) = sp.linalg.eigh(A, B, subset_by_index=[0, 10])
+
+    print((E, v))
     E = np.atleast_2d(E).transpose()
-    E = np.divide(E, E[0])
     
     u = []
     
@@ -121,7 +120,7 @@ def solve(equation, domain, N):
         psi = np.append(psi, v[:, i])
         psi = np.append(psi, 0)
         psi = np.insert(psi, 0, 0)
-       
+
         u.append(psi)
 
-    return (E, u)
+    return (E, u, nodes)
