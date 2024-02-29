@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>58052f7e-aefa-4837-933c-6b4fcbc31ff3</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>test2.py</StartupFile>
+    <StartupFile>fd_coefficients.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,11 +24,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="fd_coefficients.py" />
+    <Compile Include="quantum_mechanics.py" />
     <Compile Include="mesh_generation.py" />
-    <Compile Include="hartree.py" />
-    <Compile Include="solver_1d_linear.py" />
     <Compile Include="test.py" />
-    <Compile Include="test2.py" />
+    <Compile Include="UHF_GTO.py" />
+    <Compile Include="RHF_GTO.py" />
+    <Compile Include="solver_1d_linear.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.12" />

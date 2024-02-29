@@ -108,10 +108,7 @@ def solve(equation, domain, N):
     B = np.delete(B, 0, 0)
     B = np.delete(B, 0, 1)
     
-    (E, v) = sp.linalg.eigh(A, B, subset_by_index=[0, 10])
-
-    print((E, v))
-    E = np.atleast_2d(E).transpose()
+    (E, v) = sp.linalg.eigh(A, B)
     
     u = []
     
@@ -123,4 +120,4 @@ def solve(equation, domain, N):
 
         u.append(psi)
 
-    return (E, u, nodes)
+    return (E, u)
